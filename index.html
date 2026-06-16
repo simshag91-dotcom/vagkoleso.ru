@@ -3,257 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автосервис VAG</title>
+    <title>Астрахань VAG Сервис | Ремонт Volkswagen, Audi, Skoda, Porsche, Seat</title>
+    <!-- Подключаем Tailwind CSS для быстрого и красивого дизайна -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключаем иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Общие сбросы */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; line-height: 1.5; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 60px 0; border-bottom: 1px solid #eee; }
-        h2 { font-size: 32px; margin-bottom: 30px; text-align: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-
-        /* 1. Герой с формой */
-        .hero {
-            background: #f8f9fa;
-            padding: 40px 0 30px;
+        html { scroll-behavior: smooth; }
+        .hero-bg {
+            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1920&q=80') center/cover;
         }
-        .hero-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-        }
-        .hero-text { flex: 1 1 40%; }
-        .hero-text h1 { font-size: 38px; margin-bottom: 15px; color: #1a1a1a; }
-        .hero-text p { font-size: 18px; color: #555; margin-bottom: 20px; }
-        .hero-form { flex: 1 1 40%; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-        .hero-form input, .hero-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; }
-        .hero-form button { background: #c00; color: #fff; border: none; padding: 14px; width: 100%; border-radius: 6px; font-size: 18px; cursor: pointer; }
-        .logos { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; align-items: center; }
-        .logos img { height: 40px; opacity: 0.7; }
-
-        /* 2. Почему мы */
-        .why-item { text-align: center; padding: 20px; background: #fafafa; border-radius: 8px; }
-        .why-item .icon { font-size: 40px; margin-bottom: 10px; }
-        .why-item h3 { margin-bottom: 8px; }
-
-        /* 3. Сертификаты */
-        .cert-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-        .cert-grid img { max-height: 120px; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff; }
-
-        /* 4. Марки (копия с vag-moskva) */
-        .brand-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
-        .brand-grid img { height: 50px; filter: grayscale(100%); transition: 0.3s; }
-        .brand-grid img:hover { filter: none; }
-
-        /* 5. Детейлинг */
-        .detailing-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-        .detailing-text { flex: 1 1 40%; }
-        .detailing-text ul { list-style: none; padding: 0; }
-        .detailing-text li { padding: 8px 0; border-bottom: 1px solid #eee; }
-        .detailing-images { flex: 1 1 50%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .detailing-images img { width: 100%; border-radius: 8px; }
-
-        /* 6. Блог */
-        .blog-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .blog-card img { width: 100%; height: 180px; object-fit: cover; }
-        .blog-card .content { padding: 20px; }
-        .blog-card h3 { font-size: 20px; margin-bottom: 10px; }
-        .blog-card a { color: #c00; text-decoration: none; font-weight: bold; }
-
-        /* 7. Калькулятор (форма) */
-        .calc-form { max-width: 500px; margin: 0 auto; background: #f5f5f5; padding: 30px; border-radius: 12px; }
-        .calc-form select, .calc-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; }
-
-        /* 8. Онлайн-запись (виджет) */
-        .widget-placeholder { text-align: center; padding: 40px; background: #f0f0f0; border-radius: 12px; }
-        .widget-placeholder a { display: inline-block; background: #c00; color: #fff; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; }
-
-        @media (max-width: 768px) {
-            .hero-wrapper { flex-direction: column; }
-            .detailing-images { grid-template-columns: 1fr; }
+        .detailing-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1920&q=80') center/cover;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-<!-- 1. ГЕРОЙ + ФОРМА + ЛОГОТИПЫ -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-wrapper">
-            <div class="hero-text">
-                <h1>Профессиональный ремонт VAG в Астрахани</h1>
-                <p>Диагностика, ТО, ремонт двигателя, ходовой, электрики. Оригинальные запчасти. Гарантия.</p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <span style="background: #c00; color: #fff; padding: 5px 15px; border-radius: 20px;">Опыт 10+ лет</span>
-                    <span style="background: #c00; color: #fff; padding: 5px 15px; border-radius: 20px;">Гарантия 1 год</span>
+    <!-- НАВИГАЦИЯ И ЛОГОТИПЫ -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <span class="text-2xl font-bold text-red-600">VAG<span class="text-gray-800">ASTRA</span></span>
+                    <!-- Логотипы марок для удобства взгляда -->
+                    <div class="hidden md:flex space-x-3 border-l-2 border-gray-200 pl-4">
+                        <span class="font-semibold text-gray-500">VW</span>
+                        <span class="font-semibold text-gray-500">AUDI</span>
+                        <span class="font-semibold text-gray-500">SKODA</span>
+                        <span class="font-semibold text-gray-500">PORSCHE</span>
+                        <span class="font-semibold text-gray-500">SEAT</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm text-gray-500">г. Астрахань, ул. Автомобильная, 1</p>
+                        <a href="tel:+78512123456" class="text-lg font-bold hover:text-red-600 transition">+7 (8512) 12-34-56</a>
+                    </div>
+                    <a href="#calc" class="bg-red-600 text-white px-5 py-2 rounded-md font-semibold hover:bg-red-700 transition">Записаться</a>
                 </div>
             </div>
-            <div class="hero-form">
-                <h3>Оставьте заявку на бесплатную диагностику</h3>
-                <form action="#" method="post">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="tel" placeholder="Номер телефона" required>
-                    <textarea rows="2" placeholder="Марка, модель, год..."></textarea>
-                    <button type="submit">Отправить</button>
+        </div>
+    </nav>
+
+    <!-- ГЛАВНЫЙ ЭКРАН С ФОРМОЙ ОБРАТНОЙ СВЯЗИ -->
+    <header class="hero-bg pt-32 pb-20 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-3/5 text-white pr-8">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Специализированный сервис VAG в Астрахани</h1>
+                <p class="text-xl mb-8 text-gray-300">Ремонт, ТО и диагностика автомобилей Volkswagen, Audi, Skoda, Porsche и Seat по стандартам дилера, но дешевле.</p>
+                <div class="grid grid-cols-2 gap-4 text-sm font-medium">
+                    <div class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Сохранение гарантии</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Оригинальные запчасти</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Дилерское оборудование</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Опыт мастеров от 10 лет</div>
+                </div>
+            </div>
+            
+            <!-- Форма, которая появляется сразу -->
+            <div class="md:w-2/5 w-full mt-10 md:mt-0">
+                <div class="bg-white p-8 rounded-lg shadow-2xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Срочная запись в сервис</h3>
+                    <p class="text-gray-500 mb-6 text-sm">Оставьте телефон, перезвоним через 3 минуты.</p>
+                    <form onsubmit="event.preventDefault(); alert('Заявка отправлена! Мы скоро свяжемся с вами.');">
+                        <input type="text" placeholder="Ваше имя" required class="w-full mb-4 px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-red-500">
+                        <input type="tel" placeholder="+7 (___) ___-__-__" required class="w-full mb-4 px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-red-500">
+                        <button type="submit" class="w-full bg-red-600 text-white font-bold py-3 rounded hover:bg-red-700 transition">Жду звонка</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ПОЧЕМУ МЫ (из remont-servis-vag.ru) -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Почему нам доверяют свои VAG</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <i class="fas fa-tools text-4xl text-red-600 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Узкая специализация</h4>
+                    <p class="text-gray-600">Мы не чиним всё подряд. Мы знаем каждый винтик в моторах TSI, TFSI и коробках DSG.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <i class="fas fa-shield-alt text-4xl text-red-600 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Гарантия на работу</h4>
+                    <p class="text-gray-600">Даем документальную гарантию до 2 лет на установленные запчасти и выполненные работы.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <i class="fas fa-video text-4xl text-red-600 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Прозрачный ремонт</h4>
+                    <p class="text-gray-600">Присутствуйте в ремзоне или получайте фото/видео отчет о ходе ремонта в мессенджеры.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕРВИСНЫЙ КАЛЬКУЛЯТОР / ОНЛАЙН ЗАПИСЬ (из service.audi-taganka.ru) -->
+    <section id="calc" class="py-16 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-8">Сервисный калькулятор и онлайн-запись</h2>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <form id="calc-form" onsubmit="event.preventDefault(); alert('Ваша заявка по калькулятору отправлена. Менеджер свяжется для подтверждения цены и времени.');">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Марка</label>
+                            <select id="brand" class="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:border-red-500">
+                                <option>Volkswagen</option><option>Audi</option><option>Skoda</option><option>Porsche</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Услуга</label>
+                            <select id="service" onchange="updatePrice()" class="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:border-red-500">
+                                <option value="to">Регулярное ТО</option>
+                                <option value="dsg">Ремонт DSG</option>
+                                <option value="engine">Ремонт двигателя</option>
+                                <option value="diag">Диагностика</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Желаемая дата</label>
+                            <input type="date" class="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:border-red-500">
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row justify-between items-center bg-gray-50 p-4 rounded mb-6 border">
+                        <div class="mb-4 md:mb-0">
+                            <span class="text-gray-600 block">Ориентировочная стоимость:</span>
+                            <span id="price-display" class="text-2xl font-bold text-gray-800">от 8 000 ₽</span>
+                        </div>
+                        <div class="flex space-x-2 w-full md:w-auto">
+                            <input type="tel" placeholder="Ваш телефон" required class="p-2 border rounded w-full md:w-48 focus:outline-none focus:border-red-500">
+                            <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded font-bold hover:bg-red-700">Записаться</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
-        <!-- Логотипы марок -->
-        <div class="logos">
-            <img src="https://via.placeholder.com/80x40?text=VW" alt="Volkswagen">
-            <img src="https://via.placeholder.com/80x40?text=Audi" alt="Audi">
-            <img src="https://via.placeholder.com/80x40?text=Skoda" alt="Skoda">
-            <img src="https://via.placeholder.com/80x40?text=Seat" alt="Seat">
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- 2. ПОЧЕМУ МЫ -->
-<section>
-    <div class="container">
-        <h2>Почему выбирают нас</h2>
-        <div class="grid-4">
-            <div class="why-item"><div class="icon">🔧</div><h3>Опыт более 10 лет</h3><p>Специалисты с профильным образованием и стажем.</p></div>
-            <div class="why-item"><div class="icon">🛡️</div><h3>Гарантия на работы</h3><p>Даём официальную гарантию до 1 года.</p></div>
-            <div class="why-item"><div class="icon">🔩</div><h3>Оригинальные запчасти</h3><p>Только оригинал или качественные аналоги.</p></div>
-            <div class="why-item"><div class="icon">📋</div><h3>Бесплатная диагностика</h3><p>При заказе ремонта диагностика бесплатно.</p></div>
+    <!-- ДЕТЕЙЛИНГ (Скрытая жемчужина, service.audi-taganka.ru) -->
+    <section class="py-16 detailing-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4 uppercase tracking-wider text-gray-200">VAG Premium Detailing</h2>
+            <p class="max-w-2xl mx-auto text-gray-400 mb-8">Для тех, кто любит свой автомобиль. Профессиональная полировка, керамика, химчистка и оклейка полиуретановой пленкой.</p>
+            <div class="flex justify-center space-x-6">
+                <span class="border border-gray-500 px-4 py-2 rounded text-sm">Керамика</span>
+                <span class="border border-gray-500 px-4 py-2 rounded text-sm">Полиуретан</span>
+                <span class="border border-gray-500 px-4 py-2 rounded text-sm">Химчистка</span>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- 3. НАГРАДЫ И СЕРТИФИКАТЫ -->
-<section>
-    <div class="container">
-        <h2>Наши сертификаты и награды</h2>
-        <div class="cert-grid">
-            <img src="https://via.placeholder.com/150x120?text=Сертификат+1" alt="Сертификат">
-            <img src="https://via.placeholder.com/150x120?text=Сертификат+2" alt="Сертификат">
-            <img src="https://via.placeholder.com/150x120?text=Сертификат+3" alt="Сертификат">
-            <img src="https://via.placeholder.com/150x120?text=Награда" alt="Награда">
+    <!-- БЛОГ И ПРИМЕРЫ РАБОТ (из trs-motors.ru) -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">Блог о ремонте и ТО VAG</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Статья 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow">
+                    <img src="https://placehold.co/600x400/2d3748/ffffff?text=Ремонт+DSG7" alt="DSG" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-red-600 text-xs font-bold uppercase">Ремонт АКПП</span>
+                        <h4 class="text-lg font-bold mt-2 mb-3">Замена сцепления DSG7 (DQ200) на Skoda Octavia</h4>
+                        <p class="text-gray-600 text-sm mb-4">Симптомы поломки, процесс демонтажа, адаптация и стоимость запчастей...</p>
+                        <a href="#" class="text-red-600 font-semibold text-sm hover:underline">Читать далее &rarr;</a>
+                    </div>
+                </div>
+                <!-- Статья 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow">
+                    <img src="https://placehold.co/600x400/2d3748/ffffff?text=Масложор+TSI" alt="TSI" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-red-600 text-xs font-bold uppercase">Двигатель</span>
+                        <h4 class="text-lg font-bold mt-2 mb-3">Как мы победили масложор на 1.8 TSI Audi A4</h4>
+                        <p class="text-gray-600 text-sm mb-4">Замена поршневой группы, ревизия ГБЦ и цепи ГРМ. Фотоотчет из ремзоны.</p>
+                        <a href="#" class="text-red-600 font-semibold text-sm hover:underline">Читать далее &rarr;</a>
+                    </div>
+                </div>
+                <!-- Статья 3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow">
+                    <img src="https://placehold.co/600x400/2d3748/ffffff?text=Диагностика+VCDS" alt="VCDS" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-red-600 text-xs font-bold uppercase">Диагностика</span>
+                        <h4 class="text-lg font-bold mt-2 mb-3">Скрытые функции VAG: что можно активировать?</h4>
+                        <p class="text-gray-600 text-sm mb-4">От теста стрелок до умного света. Что умеет ваш Фольксваген с завода.</p>
+                        <a href="#" class="text-red-600 font-semibold text-sm hover:underline">Читать далее &rarr;</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- 4. МАРКИ (дублируем логотипы, но можно оставить те же) -->
-<section style="background: #f8f9fa;">
-    <div class="container">
-        <h2>Работаем со всеми марками VAG</h2>
-        <div class="brand-grid">
-            <img src="https://via.placeholder.com/100x50?text=VW" alt="VW">
-            <img src="https://via.placeholder.com/100x50?text=Audi" alt="Audi">
-            <img src="https://via.placeholder.com/100x50?text=Skoda" alt="Skoda">
-            <img src="https://via.placeholder.com/100x50?text=Seat" alt="Seat">
-            <img src="https://via.placeholder.com/100x50?text=Porsche" alt="Porsche">
+    <!-- СЕРТИФИКАТЫ И НАГРАДЫ (из remont-servis-vag.ru) -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-10">Сертификаты и обучение</h2>
+            <p class="text-gray-600 mb-10 max-w-2xl mx-auto">Наши механики регулярно проходят профильное обучение по стандартам VAG Group.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <img src="https://placehold.co/200x280/e2e8f0/475569?text=Сертификат+MOTUL" class="shadow-sm border border-gray-200">
+                <img src="https://placehold.co/200x280/e2e8f0/475569?text=Сертификат+VAG" class="shadow-sm border border-gray-200">
+                <img src="https://placehold.co/200x280/e2e8f0/475569?text=Допуск+BOSCH" class="shadow-sm border border-gray-200">
+                <img src="https://placehold.co/200x280/e2e8f0/475569?text=Сертификат+KYB" class="shadow-sm border border-gray-200">
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- 5. ДЕТЕЙЛИНГ -->
-<section>
-    <div class="container">
-        <h2>Детейлинг – полный уход за автомобилем</h2>
-        <div class="detailing-wrapper">
-            <div class="detailing-text">
-                <ul>
-                    <li>🧽 Полировка кузова – восстановление блеска</li>
-                    <li>🧴 Химчистка салона – удаление запахов и пятен</li>
-                    <li>💎 Керамическое покрытие – защита на год</li>
-                    <li>🛡️ Антигравийная плёнка – защита ЛКП</li>
+    <!-- ПОДВАЛ (FOOTER) -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-red-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <span class="text-2xl font-bold text-white mb-4 block">VAG<span class="text-red-600">ASTRA</span></span>
+                <p class="text-sm text-gray-400 mb-4">Профессиональный сервис, диагностика, ТО и ремонт автомобилей Volkswagen Group в Астрахани.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-vk text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-telegram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp text-xl"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold text-white mb-4">Контакты</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fas fa-map-marker-alt mr-2 text-red-500"></i> г. Астрахань, ул. Автомобильная, 1</li>
+                    <li><i class="fas fa-phone mr-2 text-red-500"></i> +7 (8512) 12-34-56</li>
+                    <li><i class="fas fa-clock mr-2 text-red-500"></i> Ежедневно с 09:00 до 20:00</li>
                 </ul>
-                <p style="margin-top: 20px;"><strong>Скидка 10%</strong> на детейлинг при заказе ТО.</p>
             </div>
-            <div class="detailing-images">
-                <img src="https://via.placeholder.com/300x200?text=До" alt="До">
-                <img src="https://via.placeholder.com/300x200?text=После" alt="После">
-                <img src="https://via.placeholder.com/300x200?text=До2" alt="До">
-                <img src="https://via.placeholder.com/300x200?text=После2" alt="После">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 6. БЛОГ -->
-<section style="background: #f8f9fa;">
-    <div class="container">
-        <h2>Наш блог о ремонте и ТО</h2>
-        <div class="grid-3">
-            <div class="blog-card">
-                <img src="https://via.placeholder.com/400x180?text=Ремень+ГРМ" alt="Ремень ГРМ">
-                <div class="content">
-                    <h3>Когда менять ремень ГРМ на VW?</h3>
-                    <p>Интервал замены, признаки износа, последствия обрыва.</p>
-                    <a href="#">Читать →</a>
-                </div>
-            </div>
-            <div class="blog-card">
-                <img src="https://via.placeholder.com/400x180?text=Масло" alt="Масло">
-                <div class="content">
-                    <h3>Как выбрать масло для Audi и Skoda</h3>
-                    <p>Допуски, вязкость, замена масла – полное руководство.</p>
-                    <a href="#">Читать →</a>
-                </div>
-            </div>
-            <div class="blog-card">
-                <img src="https://via.placeholder.com/400x180?text=АКПП" alt="АКПП">
-                <div class="content">
-                    <h3>Ремонт АКПП – мифы и реальность</h3>
-                    <p>Когда нужна замена масла, а когда – капитальный ремонт.</p>
-                    <a href="#">Читать →</a>
+            <div>
+                <h4 class="text-lg font-bold text-white mb-4">Как добраться</h4>
+                <!-- Заглушка для карты -->
+                <div class="w-full h-32 bg-gray-700 flex items-center justify-center rounded">
+                    <span class="text-gray-400 text-sm">[ Интерактивная Яндекс Карта ]</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- 7. СЕРВИСНЫЙ КАЛЬКУЛЯТОР (форма) -->
-<section>
-    <div class="container">
-        <h2>Расчёт стоимости ремонта</h2>
-        <div class="calc-form">
-            <form action="#" method="post">
-                <select required>
-                    <option value="">Выберите марку</option>
-                    <option>Volkswagen</option>
-                    <option>Audi</option>
-                    <option>Skoda</option>
-                    <option>Seat</option>
-                </select>
-                <select required>
-                    <option value="">Выберите тип услуги</option>
-                    <option>ТО (замена масла)</option>
-                    <option>Ремонт двигателя</option>
-                    <option>Ремонт ходовой</option>
-                    <option>Диагностика</option>
-                    <option>Детейлинг</option>
-                </select>
-                <input type="text" placeholder="Год выпуска, модель">
-                <input type="tel" placeholder="Ваш телефон" required>
-                <button type="submit" style="background: #c00; color: #fff; border: none; padding: 14px; width: 100%; border-radius: 6px; font-size: 18px; cursor: pointer;">Узнать цену</button>
-            </form>
-            <p style="text-align: center; margin-top: 10px; font-size: 14px; color: #888;">Мы перезвоним и назовём точную стоимость</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-gray-800 text-sm text-gray-500 text-center">
+            &copy; 2023 VAG ASTRA Сервис. Не является официальным дилером. Все логотипы используются исключительно в информационных целях.
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- 8. ОНЛАЙН-ЗАПИСЬ (заглушка) -->
-<section style="background: #f8f9fa;">
-    <div class="container">
-        <h2>Записаться на ремонт онлайн</h2>
-        <div class="widget-placeholder">
-            <p style="margin-bottom: 20px;">Выберите удобное время и дату через наш календарь</p>
-            <a href="#">Записаться сейчас</a>
-            <!-- Здесь можно вставить iframe Calendly или другой виджет -->
-        </div>
-    </div>
-</section>
-
-<!-- Футер -->
-<footer style="text-align: center; padding: 30px 0; background: #222; color: #ccc;">
-    <p>© 2025 Автосервис VAG. Все права защищены.</p>
-</footer>
-
+    <!-- Скрипт для работы калькулятора -->
+    <script>
+        function updatePrice() {
+            const service = document.getElementById('service').value;
+            const priceDisplay = document.getElementById('price-display');
+            
+            let price = "";
+            switch(service) {
+                case 'to': price = "от 8 000 ₽"; break;
+                case 'dsg': price = "от 35 000 ₽"; break;
+                case 'engine': price = "от 50 000 ₽"; break;
+                case 'diag': price = "от 1 500 ₽"; break;
+                default: price = "от 5 000 ₽";
+            }
+            
+            priceDisplay.textContent = price;
+        }
+    </script>
 </body>
 </html>
